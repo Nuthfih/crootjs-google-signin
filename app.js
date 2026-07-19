@@ -1,6 +1,6 @@
 import { postJSON } from "https://cdn.jsdelivr.net/gh/crootjs/lib@0.0.1/api.js";
 
-const urlBackend = "https://tugas-api-nuthfih.osk.dom.my.id/api/verify"; 
+const urlBackend = "https://tugas-google-nuthfih.sao.dom.my.id/api/verify"; 
 const divStatus = document.getElementById("status");
 
 function responseData(hasil) {
