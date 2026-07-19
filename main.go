@@ -68,10 +68,9 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080" 
+		port = "8080"
 	}
 
 	fmt.Println("Server Golang berjalan di port", port)
-	
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	http.ListenAndServe(":"+port, nil)
 }
