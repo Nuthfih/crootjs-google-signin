@@ -8,19 +8,11 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/joho/godotenv"
 	"google.golang.org/api/idtoken"
 )
 
 type TokenRequest struct {
 	Token string `json:"token"`
-}
-
-func init() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Println("Warning: Tidak bisa membaca file .env, pastikan file tersebut ada di root folder.")
-	}
 }
 
 func enableCORS(w *http.ResponseWriter) {
@@ -71,6 +63,7 @@ func main() {
 		port = "8080"
 	}
 
-	fmt.Println("Server Golang berjalan di port", port)
-	http.ListenAndServe(":"+port, nil)
+	log.Println("Server Golang berjalan di port", port)
+	http.ListenAndServe("127.0.0.1:"+port, nil)
 }
+
