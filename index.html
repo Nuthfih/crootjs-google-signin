@@ -8,20 +8,31 @@
         body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f4f4f9; }
         #status { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; }
         .success { background-color: #d4edda; color: #155724; }
+        
+        #user-area { display: none; text-align: center; margin-top: 20px; }
+        button.logout-btn { margin-top: 10px; padding: 10px 20px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
-<h2>Login ke Aplikasi</h2>
+    <h2>Login ke Aplikasi</h2>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-    <div id="g_id_onload"
-         data-client_id="541980088085-o7en9cbq1j4hu1to9ad3rhr877jvs7bq.apps.googleusercontent.com"
-         data-callback="tanganiKredensialGoogle"
-         data-auto_prompt="false">
+    <div id="login-area">
+        <div id="g_id_onload"
+            data-client_id="541980088085-o7en9cbq1j4hu1to9ad3rhr877jvs7bq.apps.googleusercontent.com"
+            data-callback="tanganiKredensialGoogle"
+            data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin" data-type="standard" data-theme="outline" data-size="large"></div>
     </div>
-    
-    <div class="g_id_signin" data-type="standard" data-theme="outline" data-size="large"></div>
+
     <div id="status"></div>
+
+    <div id="user-area">
+        <h3 id="welcome-text">Selamat datang!</h3>
+        <button id="logout-btn" class="logout-btn">Logout</button>
+    </div>
+
     <script type="module" src="app.js"></script>
 </body>
 </html>
