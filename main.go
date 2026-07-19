@@ -78,7 +78,14 @@ func verifyGoogleToken(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/api/verify", verifyGoogleToken)
 
-	port := ":8080"
+	// Ambil port dari server Domcloud
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Fallback jika sedang di-run secara lokal
+	}
+
 	fmt.Println("Server Golang berjalan di port", port)
-	log.Fatal(http.ListenAndServe(port, nil))
+	
+	// Tambahkan titik dua (":") di depan variabel port
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
