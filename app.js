@@ -15,7 +15,6 @@ function responseData(hasil) {
         divStatus.innerHTML = `<strong>Berhasil!</strong> ${hasil.message}`;
         
         loginArea.style.display = "none";
-        
         userArea.style.display = "block";
         welcomeText.innerText = `Selamat datang! ID Unikmu: ${hasil.user_id}`;
         
@@ -36,6 +35,11 @@ logoutBtn.addEventListener("click", () => {
     userArea.style.display = "none";
     divStatus.style.display = "none";
     loginArea.style.display = "block";
-    
     console.log("User telah logout.");
 });
+
+const scriptGoogle = document.createElement('script');
+scriptGoogle.src = "https://accounts.google.com/gsi/client";
+scriptGoogle.async = true;
+scriptGoogle.defer = true;
+document.head.appendChild(scriptGoogle);
