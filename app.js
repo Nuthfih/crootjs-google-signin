@@ -10,18 +10,18 @@ const logoutBtn = document.getElementById("logout-btn");
 function responseData(hasil) {
     divStatus.style.display = "block";
     
-    if(hasil.status === 200) {
+    if(hasil.status === "success") {
         divStatus.className = "success";
-        divStatus.innerHTML = `<strong>Berhasil!</strong> ${hasil.data.message}`;
+        divStatus.innerHTML = `<strong>Berhasil!</strong> ${hasil.message}`;
         
         loginArea.style.display = "none";
         
         userArea.style.display = "block";
-        welcomeText.innerText = `Selamat datang! ID Unikmu: ${hasil.data.user_id}`;
+        welcomeText.innerText = `Selamat datang! ID Unikmu: ${hasil.user_id}`;
         
-        console.log("Data user tervalidasi dari Golang:", hasil.data);
+        console.log("Data user tervalidasi dari Golang:", hasil);
     } else {
-        divStatus.innerHTML = "Gagal memverifikasi di sisi server.";
+        divStatus.innerHTML = "Gagal memverifikasi di sisi server. Cek console.";
         console.error("Respon server:", hasil);
     }
 }
